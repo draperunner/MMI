@@ -28,6 +28,7 @@ public class PersonPanel extends JPanel implements ActionListener, ChangeListene
 		GridBagConstraints c;
 		setLayout(new GridBagLayout());
 		c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
 		
 		c.gridx = 0;
 		c.gridy = 0;
