@@ -82,7 +82,6 @@ public class PassivePersonPanel extends PersonPanel {
 
 	@Override
 	public void propertyChange(PropertyChangeEvent e) {
-		System.out.println("JAJAJAJAJ");
 		if (e.getPropertyName().equals("name")) {
 			nameTextField.setText(model.getName());
 		} else if (e.getPropertyName().equals("email")) {
