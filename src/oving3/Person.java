@@ -16,8 +16,7 @@ public class Person {
 		pcs = new PropertyChangeSupport(this);
 	}
 
-	public Person(String name, String dateOfBirth, Gender gender, String email,
-			int height) {
+	public Person(String name, String dateOfBirth, Gender gender, String email, int height) {
 		pcs = new PropertyChangeSupport(this);
 		setName(name);
 		setDateOfBirth(dateOfBirth);

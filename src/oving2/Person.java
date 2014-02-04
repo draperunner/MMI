@@ -9,6 +9,17 @@ public class Person {
 	private int height;
 	
 	
+	
+	
+	public Person(String name, String dateOfBirth, Gender gender, String email, int height) {
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.email = email;
+		this.height = height;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -62,4 +73,8 @@ public class Person {
 		setName(name);
 	}
 
+
+	public String toString() {
+		return getName() + " " + getDateOfBirth() + " " + getEmail() + " " + getGender() + " " + getHeight();
+	}
 }

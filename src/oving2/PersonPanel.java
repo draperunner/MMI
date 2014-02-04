@@ -4,6 +4,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,14 +14,12 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import oving1.ButtonsNText;
-
 public class PersonPanel extends JPanel implements ActionListener, ChangeListener {
 
 	private Person model;
 	private JLabel nameLabel, emailLabel, dateOfBirthLabel, genderLabel, heightLabel;
 	private JTextField nameTextField, emailTextField, dateOfBirthTextField;
-	private JComboBox gender;
+	private JComboBox<Gender> gender;
 	private JSlider height;
 
 	public PersonPanel() {
@@ -69,7 +68,7 @@ public class PersonPanel extends JPanel implements ActionListener, ChangeListene
 		add(genderLabel, c);
 		
 		c.gridx = 1;
-		gender = new JComboBox();
+		gender = new JComboBox<Gender>();
 		gender.setName("GenderPropertyComponent");
 		gender.addItem(Gender.male);
 		gender.addItem(Gender.female);
@@ -85,7 +84,13 @@ public class PersonPanel extends JPanel implements ActionListener, ChangeListene
 		height = new JSlider(120, 220);
 		height.setName("HeightPropertyComponent");
 		height.addChangeListener(this);
+		height.setPaintTicks(true);
+		height.setPaintLabels(true);
+		height.setMajorTickSpacing(20);
 		add(height, c);
+		
+		setModel(new Person("Ola Nordmann", "19900101", Gender.male, "ola@nordmann.no", 180));
+
 	}
 
 	public Person getModel() {
@@ -118,12 +123,14 @@ public class PersonPanel extends JPanel implements ActionListener, ChangeListene
 		}
 		else if (e.getSource() == height) {
 			model.setHeight(height.getValue());
-		}	
+		}
+		System.out.println(model);
 	}
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		model.setHeight(height.getValue());		
+		System.out.println(model);
 	}
 
 

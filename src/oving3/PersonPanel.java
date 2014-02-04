@@ -16,10 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import oving1.ButtonsNText;
-
-public class PersonPanel extends JPanel implements ActionListener,
-		ChangeListener, PropertyChangeListener {
+public class PersonPanel extends JPanel implements ActionListener, ChangeListener, PropertyChangeListener {
 
 	protected Person model;
 	private JLabel nameLabel, emailLabel, dateOfBirthLabel, genderLabel,
@@ -72,10 +69,7 @@ public class PersonPanel extends JPanel implements ActionListener,
 
 		c.gridx = 1;
 		addHeightSlider(c);
-
-		setModel(new Person("Ola Nordmann", "19900101", Gender.male,
-				"ola@nordmann.no", 180));
-
+		
 	}
 
 	private void addHeightSlider(GridBagConstraints c) {
@@ -127,10 +121,9 @@ public class PersonPanel extends JPanel implements ActionListener,
 		this.model = model;
 		model.addPropertyChangeListener(this);
 		viewAll();
-
 	}
 
-	private void viewAll() {
+	protected void viewAll() {
 		nameTextField.setText(model.getName());
 		emailTextField.setText(model.getEmail());
 		dateOfBirthTextField.setText(model.getDateOfBirth());
@@ -180,5 +173,4 @@ public class PersonPanel extends JPanel implements ActionListener,
 		frame.pack();
 		frame.setVisible(true);
 	}
-
 }
