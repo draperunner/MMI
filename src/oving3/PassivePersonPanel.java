@@ -79,10 +79,20 @@ public class PassivePersonPanel extends PersonPanel {
 
 	@Override
 	public void propertyChange(PropertyChangeEvent e) {
+<<<<<<< HEAD
 
 		super.propertyChange(e);
 		
 		if (e.getPropertyName().equals("gender")) {
+=======
+		if (e.getPropertyName().equals("name")) {
+			nameTextField.setText(model.getName());
+		} else if (e.getPropertyName().equals("email")) {
+			emailTextField.setText(model.getEmail());
+		} else if (e.getPropertyName().equals("dateOfBirth")) {
+			dateOfBirthTextField.setText(model.getDateOfBirth());
+		} else if (e.getPropertyName().equals("gender")) {
+>>>>>>> 23b6038193f4969af2ac895294528f6b32e63417
 			genderTextField.setText(getGenderString());
 		} else if (e.getPropertyName().equals("height")) {
 			heightTextField.setText(Integer.toString(model.getHeight()));
