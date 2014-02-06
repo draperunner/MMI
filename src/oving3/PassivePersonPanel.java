@@ -32,8 +32,7 @@ public class PassivePersonPanel extends PersonPanel {
 
 		setEditable(false);
 
-		setModel(new Person("Ola Nordmann", "19900101", Gender.male,
-				"ola@nordmann.no", 180));
+		
 	}
 
 	private void setEditable(boolean b) {
@@ -52,9 +51,7 @@ public class PassivePersonPanel extends PersonPanel {
 
 	@Override
 	public void viewAll() {
-		nameTextField.setText(model.getName());
-		emailTextField.setText(model.getEmail());
-		dateOfBirthTextField.setText(model.getDateOfBirth());
+		super.viewAll();
 		genderTextField.setText(getGenderString());
 		heightTextField.setText(Integer.toString(model.getHeight()));
 	}
@@ -82,25 +79,13 @@ public class PassivePersonPanel extends PersonPanel {
 
 	@Override
 	public void propertyChange(PropertyChangeEvent e) {
-		System.out.println("JAJAJAJAJ");
-		if (e.getPropertyName().equals("name")) {
-			nameTextField.setText(model.getName());
-		} else if (e.getPropertyName().equals("email")) {
-			emailTextField.setText(model.getEmail());
-		} else if (e.getPropertyName().equals("dateOfBirth")) {
-			dateOfBirthTextField.setText(model.getDateOfBirth());
-		} else if (e.getPropertyName().equals("gender")) {
+
+		super.propertyChange(e);
+		
+		if (e.getPropertyName().equals("gender")) {
 			genderTextField.setText(getGenderString());
 		} else if (e.getPropertyName().equals("height")) {
 			heightTextField.setText(Integer.toString(model.getHeight()));
 		}
-	}
-
-	public static void main(String[] args) {
-		PersonPanel pp = new PassivePersonPanel();
-		JFrame frame = new JFrame();
-		frame.setContentPane(pp);
-		frame.pack();
-		frame.setVisible(true);
 	}
 }

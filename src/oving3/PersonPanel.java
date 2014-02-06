@@ -69,7 +69,6 @@ public class PersonPanel extends JPanel implements ActionListener, ChangeListene
 
 		c.gridx = 1;
 		addHeightSlider(c);
-		
 	}
 
 	private void addHeightSlider(GridBagConstraints c) {
@@ -172,5 +171,15 @@ public class PersonPanel extends JPanel implements ActionListener, ChangeListene
 		frame.setContentPane(pp);
 		frame.pack();
 		frame.setVisible(true);
+		frame.setVisible(true);
+		pp.setModel(new Person("Ola Nordmann", "19900101", Gender.male,
+				"ola@nordmann.no", 180));
+		
+		PassivePersonPanel ppp = new PassivePersonPanel();
+		JFrame frame2 = new JFrame();
+		frame2.setContentPane(ppp);
+		frame2.pack();
+		frame2.setVisible(true);
+		ppp.setModel(pp.getModel());
 	}
 }

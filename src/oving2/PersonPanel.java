@@ -121,9 +121,6 @@ public class PersonPanel extends JPanel implements ActionListener, ChangeListene
 		else if (e.getSource() == gender) {
 			model.setGender((Gender) gender.getSelectedItem());
 		}
-		else if (e.getSource() == height) {
-			model.setHeight(height.getValue());
-		}
 		System.out.println(model);
 	}
 
