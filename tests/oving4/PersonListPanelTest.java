@@ -11,7 +11,11 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.ListModel;
 
+import oving3.Gender;
+import oving3.Person;
+import oving3.PersonPanel;
 import junit.extensions.jfcunit.JFCTestCase;
 import junit.extensions.jfcunit.JFCTestHelper;
 import junit.extensions.jfcunit.TestHelper;
@@ -60,9 +64,9 @@ public class PersonListPanelTest extends JFCTestCase {
     }
 
     private void initializePersonList() {
-        JList personList = 
-            (JList) findComponent(JList.class, "PersonList");
-        DefaultListModel listModel = (DefaultListModel) personList.getModel();
+        JList<Person> personList = (JList<Person>) findComponent(JList.class, "PersonList");
+        DefaultListModel<Person> lm = personList.getModel();
+        DefaultListModel listModel = (DefaultListModel) lm;
         listModel.addElement(person1);
         listModel.addElement(person2);
         listModel.addElement(person3);

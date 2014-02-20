@@ -16,6 +16,13 @@ public class Person {
 		pcs = new PropertyChangeSupport(this);
 	}
 
+	public Person(String name) {
+		pcs = new PropertyChangeSupport(this);
+		setName(name);
+	}
+	
+	
+
 	public Person(String name, String dateOfBirth, Gender gender, String email, int height) {
 		pcs = new PropertyChangeSupport(this);
 		setName(name);
@@ -81,7 +88,7 @@ public class Person {
 	}
 	
 	public String toString() {
-		return (getName() + " " + getDateOfBirth() + " " + getEmail() + " " + getGender() + " " + getHeight());
+		return getName();
 	}
 
 }
